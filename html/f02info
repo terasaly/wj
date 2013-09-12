@@ -1,0 +1,51 @@
+wj
+==
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style>
+        #back{
+            width: 100px;height: 30px;background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<div id="back">
+</div>
+<input>
+<input type="button" value="确认" onclick="queren()">
+<script>
+    var code;
+    var back = document.getElementById("back");
+    function creatcode(){
+        code="";
+        var codelen = 4;
+        var codeStr = new Array('一','二','三','四','五','六','七','八');
+        for(var i = 0;i<codelen;i++){
+            var codeNum = Math.floor(Math.random()*8);
+            code += codeStr[codeNum]
+        }
+        if(back){
+            back.innerHTML = code;
+        }
+    }creatcode();
+    function queren(){
+        var inputObj = document.getElementsByTagName("input")[0].value;
+        if(inputObj==""){
+            alert("请输入验证码")
+        }else if(inputObj!=code){
+            alert("输入错误");
+            creatcode();
+        }
+        else{
+            alert("输入正确")
+        }
+
+    }
+</script>
+
+</body>
+</html>
